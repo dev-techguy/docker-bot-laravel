@@ -6,6 +6,8 @@ ENV TERM            xterm-color
 ARG DEV_MODE
 ENV DEV_MODE $DEV_MODE
 
+COPY ./src/ /
+
 RUN \
     curl -sfL https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
     chmod +x /usr/bin/composer                                                                     && \
