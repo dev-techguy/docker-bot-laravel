@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31bd4b6c-ddd6-403d-be74-502c1c144d6c" name="Default Changelist" comment=":whale: Work about Docker.">
-      <change beforePath="$PROJECT_DIR$/src/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +188,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615562261571</updated>
-      <workItem from="1615562262947" duration="10238000" />
+      <workItem from="1615562262947" duration="10611000" />
     </task>
     <task id="LOCAL-00001" summary=":whale: Work about Docker.">
       <created>1615562889363</created>
@@ -316,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615572448679</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary=":whale: Work about Docker.">
+      <created>1615572538781</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1615572538781</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
