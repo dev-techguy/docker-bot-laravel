@@ -5,5 +5,5 @@ RUN set -ex \
     postgresql-dev
 
 RUN docker-php-ext-install pdo pdo_pgsql
-RUN chown -R www-data:www-data /var/www
-RUN chmod 755 /var/www
+RUN chown -R www-data:www-data /var/www/html
+RUN chmod 755 /var/www/html
