@@ -1,0 +1,84 @@
+version: "3.9"
+networks:
+  laravel:
+services:
+  nginx:
+    image: nginx:stable-alpine
+    networks:
+      - laravel
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - php
+      - pgsql
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "9000:9000"
+    networks:
+      - laravel
+
+  pgsql:
+    image: postgres:13
+    networks:
+      - laravel
+    container_name: pgsql
+    tty: true
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgsql:/var/lib/postgresql/data
+    environment:
+      PGPASSWORD: KZwoGVh0IBTX
+      POSTGRES_DB: bot_app
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: KZwoGVh0IBTX
+      SERVICE_TAGS: dev
+      SERVICE_NAME: pgsql
+
+
+  composer:
+    image: composer:latest
+    container_name: composer
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    depends_on:
+      - php
+    networks:
+      - laravel
+
+
+#  npm:
+#    image: node:14
+#    container_name: npm
+#    volumes:
+#      - ./src:/var/www/html
+#    working_dir: /var/www/html
+#    entrypoint: ['npm']
+
+
+  artisan:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: artisan
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - pgsql
+    working_dir: /var/www/html
+    entrypoint: ['php','/var/www/html/artisan']
+    networks:
+      - laravel
