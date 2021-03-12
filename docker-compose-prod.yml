@@ -14,7 +14,7 @@ services:
       - pgsql
     volumes:
       - ./src:/var/www/html
-      - ./nginx/default.conf:/etc/nginx/conf.d
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
 
   php:
     build:
