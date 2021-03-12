@@ -1,9 +1,7 @@
-# FROM php:7.4-alpine
-
-# RUN docker-php-ext-install pdo fpm
-
 FROM php:7.4-alpine
+FROM php:7.4-fpm
+FROM php:7.4-cli
+FROM php:7.4-php_pdo_pgsql
+FROM php:7.4-mysql
 
-COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
-
-RUN install-php-extensions gd xdebug bcmath fpm pgsql pdo
+RUN docker-php-ext-install pdo
